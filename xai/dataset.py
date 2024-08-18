@@ -1,29 +1,50 @@
-from pathlib import Path
+import pandas as pd
+from sklearn.datasets import fetch_california_housing
 
-import typer
-from loguru import logger
-from tqdm import tqdm
-
-from xai.config import PROCESSED_DATA_DIR, RAW_DATA_DIR
-
-app = typer.Typer()
+# Fetch the California housing dataset
+sklearn_data = fetch_california_housing()
 
 
-@app.command()
-def main(
-    # ---- REPLACE DEFAULT PATHS AS APPROPRIATE ----
-    input_path: Path = RAW_DATA_DIR / "dataset.csv",
-    output_path: Path = PROCESSED_DATA_DIR / "dataset.csv",
-    # ----------------------------------------------
-):
-    # ---- REPLACE THIS WITH YOUR OWN CODE ----
-    logger.info("Processing dataset...")
-    for i in tqdm(range(10), total=10):
-        if i == 5:
-            logger.info("Something happened for iteration 5.")
-    logger.success("Processing dataset complete.")
-    # -----------------------------------------
+def data_desc():
+    # Print the dataset description
+    print(sklearn_data['DESCR'][200:1420])
+
+
+class Dataset:
+    def __init__(self, output_path="../dataset/raw/california_housing.csv"):
+        # Set output path
+        self.output_path = output_path
+
+    def assemble_data(self):
+        # Assemble the features and labels into a DataFrame
+        features = pd.DataFrame(sklearn_data['data'], columns=sklearn_data['feature_names'])
+        label = pd.Series(sklearn_data['target'], name='MedHouseVal')
+
+        df_housing_data = pd.concat([features, label], axis=1)
+
+        # Print the first 10 rows of the DataFrame
+        print(df_housing_data.head(10).to_string())
+
+        # Store the DataFrame as a CSV file
+        self.store_data(df_housing_data)
+
+    def store_data(self, df):
+        try:
+            df.to_csv(self.output_path, sep=',', index=False)
+        except IOError as e:
+            print(f"File I/O error: {e}")
+        except Exception as exc:
+            print(f"An error occurred: {exc}")
+        else:
+            print("Conversion successful.")
 
 
 if __name__ == "__main__":
-    app()
+    # Create an instance of the Dataset class
+    main = Dataset()
+
+    # Output the description of the dataset
+    data_desc()
+
+    # Assemble the dataset and store it as a CSV file
+    main.assemble_data()
