@@ -1,4 +1,4 @@
-# XAI  
+# ◘ Explainable Artificial Intelligence (XAI)
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
@@ -6,7 +6,7 @@
 
 Exploration of small-scale projects based on Explainable AI methods. Work in Progress.
 
-## Project Organization 
+## Project Organization
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
@@ -56,6 +56,9 @@ Exploration of small-scale projects based on Explainable AI methods. Work in Pro
     │
     └── plots.py                <- Code to create visualizations
 ```
-
+### ◘ Execution Sequence
+1. After installation, the 'dataset.py' needs to be executed.
+2. Next is 'feature_exploration.py'.
+3. Followed by 'feature_cleaning.py'
 --------
 
