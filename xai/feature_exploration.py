@@ -13,7 +13,7 @@ def show_on_console(text, code):
     print('-' * 150)
 
 
-class FeatureAnalysis:
+class FeatureExploration:
     def __init__(self):
         self.input_path = input_path
         self.save_fig = save_path
@@ -76,5 +76,5 @@ class FeatureAnalysis:
 
 
 if __name__ == "__main__":
-    main = FeatureAnalysis()
+    main = FeatureExploration()
     main.data_exploration()

@@ -23,51 +23,55 @@ class Visualize:
         ax = plt.axes()
         ax.set_facecolor("#e6eef1")
 
-    def plot_msn(self, df, kind):
+    def missingno(self, df, kind, path):
         self.graph_settings()
 
         if kind == 'matrix':
             try:
-                msn.matrix(df, color=(1, 0.30, 0.20), figsize=[13, 18], fontsize=12)
+                msn.matrix(df, color=(1, 0.30, 0.20), figsize=[12, 16], fontsize=12)
 
             except Exception as exc:
                 print("! ", exc)
 
             else:
                 plt.title("Missingno Nullity Matrix for the raw data", fontsize=15, fontweight='bold')
+                plt.savefig(f"{path}Missingno Nullity Matrix.png")
                 plt.show()
 
         elif kind == 'bar':
             try:
-                msn.bar(df, color="dodgerblue", sort="ascending", figsize=(13, 18), fontsize=12)
+                msn.bar(df, color="dodgerblue", sort="ascending", figsize=(12, 16), fontsize=12)
 
             except Exception as exc:
                 print("! ", exc)
 
             else:
                 plt.title("Missingno Bar Plot for the raw data", fontsize=15, fontweight='bold')
+                plt.savefig(f"{path}Missingno Bar Plot.png")
                 plt.show()
 
         elif kind == 'heatmap':
             try:
-                msn.heatmap(df, cmap="RdYlGn", figsize=(13, 18), fontsize=12)
+                msn.heatmap(df, cmap="RdYlGn", figsize=(12, 16), fontsize=12)
 
             except Exception as exc:
                 print("! ", exc)
 
             else:
                 plt.title("Missingno Nullity Heatmap for the raw data", fontsize=15, fontweight='bold')
+                plt.savefig(f"{path}Missingno Nullity Heatmap.png")
                 plt.show()
 
         elif kind == 'dendrogram':
             try:
-                msn.dendrogram(df, figsize=(13, 18), fontsize=11)
+                msn.dendrogram(df, figsize=(12, 16), fontsize=11)
 
             except Exception as exc:
                 print("! ", exc)
 
             else:
                 plt.title("Missingno Nullity Dendrogram for the raw data", fontsize=15, fontweight='bold')
+                plt.savefig(f"{path}Missingno Nullity Dendrogram.png")
                 plt.show()
 
     def outlier(self, df, text, path):
