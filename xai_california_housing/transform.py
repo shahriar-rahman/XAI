@@ -9,15 +9,6 @@ from matplotlib.pyplot import savefig
 import warnings
 warnings.filterwarnings("ignore")
 
-# GUIDE FOR KMEANS mechanisms
-# Inertia measures how well a dataset was clustered by K-Means.
-# It is calculated by measuring the distance between each data point and its centroid, squaring this distance,
-# and summing these squares across one cluster.
-# A good model is one with low inertia AND a low number of clusters (K).
-# However, this is a tradeoff because as K increases, inertia decreases.
-# Distortion = 1/n * Σ(distance(point, centroid)^2)
-# Inertia = Σ(distance(point, centroid)^2)
-
 
 def show_on_console(text_1, text_2):
     # Console print
