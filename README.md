@@ -6,7 +6,7 @@
 
 Exploration of small-scale projects based on Explainable AI methods. Work in Progress.  
 
-## Project Organization     
+## Project Organization      
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
