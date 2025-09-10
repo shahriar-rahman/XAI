@@ -1,4 +1,4 @@
-# ◘ Explainable Artificial Intelligence (XAI)       
+# ◘ Explainable Artificial Intelligence (XAI)        
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
@@ -14,7 +14,7 @@ Exploration of small-scale projects based on Explainable AI methods. Work in Pro
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
 │   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
+│   ├── interim        <- Intermediate data that has been transformed. 
 │   ├── processed      <- The final, canonical data sets for modeling.
 │   └── raw            <- The original, immutable data dump.
 │
